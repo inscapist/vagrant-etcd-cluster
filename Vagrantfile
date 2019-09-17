@@ -21,7 +21,7 @@ Vagrant.configure('2') do |config|
       node.vm.hostname = vm_name
       node.ignition.hostname = vm_name
       node.ignition.drive_name = 'drive' + i.to_s
-      node.ignition.path = load_file("ignition/etcd_dev_#{i}.ign")
+      node.ignition.path = abs_path("ignition/etcd_dev_#{i}.ign")
 
       node.vm.provider :virtualbox do |vb|
         node.ignition.config_obj = vb
@@ -37,10 +37,19 @@ Vagrant.configure('2') do |config|
 
       # Provides DNS based on hostnames (self and peers)
       node.vm.provision :hosts, sync_hosts: true
+
+      # Copy TLS assets into each node
+      node.vm.provision 'file', source: abs_path('tls_assets/tls/cluster'), destination: 'etcd_tls'
+
+      # Make assets available to systemd
+      node.vm.provision 'shell', inline: <<-SCRIPT
+      sudo chown -R etcd:etcd etcd_tls
+      sudo chmod -R 500 etcd_tls
+      SCRIPT
     end
   end
 end
 
-def load_file(path)
+def abs_path(path)
   File.join(File.dirname(__FILE__), path)
 end

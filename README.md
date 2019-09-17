@@ -19,9 +19,33 @@ vagrant ssh core3
 If you are using iTerm2, cli behavior might be weird. Setting `export TERM=vt100` should fix it.
 
 #### Use etcdctl
-Set api version to 3 because we are using etcd 3.4.0
+On the project root
 ```bash
-export ETCDCTL_API=3
+# load etcdctl environment variables
+./etcdctl_env.sh | source
+
+# list/add/rm members
+etcdctl member list
+etcdctl member add xyz
+etcdctl member remove xyz
+
+# check endpoints
+etcdctl endpoint health
+etcdctl endpoint status
+
+# snapshot
+etcdctl snapshot save etcd.snapshot # save as etcd.snapshot
+etcdctl snapshot status etcd.snapshot # inspect
+etcdctl snapshot restore etcd.snapshot
+
+# add path
+etcdctl put /hello 5
+
+# list from prefix
+etcdctl get / --prefix --keys-only
+
+# get specific key
+etcdctl get /hello
 ```
 
 #### Debug
@@ -30,6 +54,12 @@ export ETCDCTL_API=3
 journalctl -u etcd-member
 journalctl -u etcd-member -n 100 --no-pager
 ```
+
+## Some pecularity
+
+#### etcdmain unable to open crt
+https://github.com/etcd-io/etcd/issues/9145#issuecomment-425506094
+
 
 ## Important things to note
 - Always remove unhealthy node before adding new one

@@ -2,6 +2,7 @@
 *.ign.merged
 *.img
 *.vmdk
+*.snapshot
 
 .terraform
 tls_assets/tls
