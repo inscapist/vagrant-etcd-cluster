@@ -9,12 +9,12 @@ systemd:
             [Service]
             Environment="ETCD_IMAGE_TAG=v3.4.0"
             Environment="ETCD_NAME=etcd2"
-            Environment="ETCD_ADVERTISE_CLIENT_URLS=http://172.17.10.3:2379"
-            Environment="ETCD_INITIAL_ADVERTISE_PEER_URLS=http://172.17.10.3:2380"
+            Environment="ETCD_ADVERTISE_CLIENT_URLS=http://core2:2379"
+            Environment="ETCD_INITIAL_ADVERTISE_PEER_URLS=http://core2:2380"
             Environment="ETCD_LISTEN_CLIENT_URLS=http://0.0.0.0:2379"
             Environment="ETCD_LISTEN_PEER_URLS=http://0.0.0.0:2380"
             Environment="ETCD_LISTEN_METRICS_URLS=http://0.0.0.0:2381"
-            Environment="ETCD_INITIAL_CLUSTER=etcd1=http://172.17.10.2:2380,etcd2=http://172.17.10.3:2380,etcd3=http://172.17.10.4:2380"
+            Environment="ETCD_INITIAL_CLUSTER=etcd1=http://core1:2380,etcd2=http://core2:2380,etcd3=http://core3:2380"
             Environment="ETCD_STRICT_RECONFIG_CHECK=true"
             # SSL
             # Environment="ETCD_SSL_DIR=/etc/ssl/etcd"

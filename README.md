@@ -45,13 +45,12 @@ journalctl -u etcd-member
 journalctl -u etcd-member -n 100 --no-pager
 ```
 
-## Common etcdctl calls
-
 ## Important things to note
 - Always remove unhealthy node before adding new one
 - Monitor disk usage
 
 ## Reference links
+[Possible Failure Scenarios](https://github.com/etcd-io/etcd/blob/master/Documentation/op-guide/failures.md)
+[Security](https://github.com/etcd-io/etcd/blob/master/Documentation/op-guide/security.md)
 [Deploying on AWS](https://github.com/etcd-io/etcd/blob/master/Documentation/platforms/aws.md)
 [Operating etcd on kubernetes](https://kubernetes.io/docs/tasks/administer-cluster/configure-upgrade-etcd/)
-[Possible Failure Scenarios](https://github.com/etcd-io/etcd/blob/master/Documentation/op-guide/failures.md)
