@@ -2,3 +2,8 @@
 *.ign.merged
 *.img
 *.vmdk
+
+.terraform
+tls_assets/tls
+*.tfstate
+*.tfstate.backup
