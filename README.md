@@ -54,7 +54,7 @@ journalctl -u etcd-member -n 100 --no-pager
 
 ## Some Pecularities
 
-#### 1. etcdmain unable to open crt
+#### 1. etcdmain unable to open cert
 https://github.com/etcd-io/etcd/issues/9145#issuecomment-425506094
 
 #### 2. iTerm2 fix
@@ -65,8 +65,8 @@ If you are using iTerm2, cli behavior might be weird. Setting `export TERM=vt100
 - Monitor disk usage
 
 ## Reference links
-[Possible Failure Scenarios](https://github.com/etcd-io/etcd/blob/master/Documentation/op-guide/failures.md)
-[Security](https://github.com/etcd-io/etcd/blob/master/Documentation/op-guide/security.md)
-[TLS setup](https://github.com/etcd-io/etcd/tree/master/hack/tls-setup)
+- [Possible Failure Scenarios](https://github.com/etcd-io/etcd/blob/master/Documentation/op-guide/failures.md)
+- [Security](https://github.com/etcd-io/etcd/blob/master/Documentation/op-guide/security.md)
+- [TLS setup](https://github.com/etcd-io/etcd/tree/master/hack/tls-setup)
 [Deploying on AWS](https://github.com/etcd-io/etcd/blob/master/Documentation/platforms/aws.md)
 [Operating etcd on kubernetes](https://kubernetes.io/docs/tasks/administer-cluster/configure-upgrade-etcd/)
