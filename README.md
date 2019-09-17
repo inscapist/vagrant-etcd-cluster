@@ -1,19 +1,5 @@
 # Vagrant Etcd Cluster
 
-## Cluster design criteria
-
-#### Stateful
-Stateful component is best dealt with manually. For that, we do not use AutoScalingGroup. Recovery, upgrades etc should be done manually instead of relying on Operator.
-
-#### Performance Consistency
-It is best to preallocate IOPS and networking bandwidth. For that, we can use provisionedIOps and EC2 enhanced networking.
-
-#### Data Durability
-Point in time snapshotting should be implemented. Periodic EBS snapshot should also be implemented as redundant recovery measure.
-
-#### Monitoring
-The uptime of etcd should be monitored and if downtime happens, notify the engineers.
-
 ## Common Operations
 Login into one of the etcd instance and:
 
