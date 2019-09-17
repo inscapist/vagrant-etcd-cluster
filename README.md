@@ -1,9 +1,8 @@
 # Vagrant Etcd Cluster
 
 ## Common Operations
-Login into one of the etcd instance and:
 
-#### Transpile container linux config (CLC) to ignition (IGN)
+#### Transpile container linux config (yaml) to ignition (ign)
 ```bash
 ct -in-file etcd_dev_1.yaml > etcd_dev_1.ign
 ```
@@ -15,8 +14,6 @@ vagrant ssh core2
 vagrant ssh core3
 ```
 
-#### iTerm2 fix
-If you are using iTerm2, cli behavior might be weird. Setting `export TERM=vt100` should fix it.
 
 #### Use etcdctl
 On the project root
@@ -55,11 +52,13 @@ journalctl -u etcd-member
 journalctl -u etcd-member -n 100 --no-pager
 ```
 
-## Some pecularity
+## Some Pecularities
 
-#### etcdmain unable to open crt
+#### 1. etcdmain unable to open crt
 https://github.com/etcd-io/etcd/issues/9145#issuecomment-425506094
 
+#### 2. iTerm2 fix
+If you are using iTerm2, cli behavior might be weird. Setting `export TERM=vt100` should fix it.
 
 ## Important things to note
 - Always remove unhealthy node before adding new one
